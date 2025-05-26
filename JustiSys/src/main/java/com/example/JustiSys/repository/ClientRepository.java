@@ -1,6 +1,6 @@
-package com.example.LawyerManagement.repository;
+package com.example.JustiSys.repository;
 
-import com.example.LawyerManagement.model.Client;
+import com.example.JustiSys.model.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

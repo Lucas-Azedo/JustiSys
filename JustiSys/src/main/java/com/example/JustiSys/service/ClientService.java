@@ -1,9 +1,9 @@
-package com.example.LawyerManagement.service;
+package com.example.JustiSys.service;
 
-import com.example.LawyerManagement.model.City;
-import com.example.LawyerManagement.model.Client;
-import com.example.LawyerManagement.repository.CityRepository;
-import com.example.LawyerManagement.repository.ClientRepository;
+import com.example.JustiSys.model.City;
+import com.example.JustiSys.model.Client;
+import com.example.JustiSys.repository.CityRepository;
+import com.example.JustiSys.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ClientService {

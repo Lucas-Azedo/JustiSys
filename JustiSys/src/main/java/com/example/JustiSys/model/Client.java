@@ -1,4 +1,4 @@
-package com.example.LawyerManagement.model;
+package com.example.JustiSys.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

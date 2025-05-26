@@ -1,10 +1,10 @@
-package com.example.LawyerManagement;
+package com.example.JustiSys;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LawyerManagementApplicationTests {
+class JustiSys {
 
 	@Test
 	void contextLoads() {
