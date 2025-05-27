@@ -1,10 +1,15 @@
 package com.example.JustiSys.service;
 
+import com.example.JustiSys.dto.ClientRequestDTO;
+import com.example.JustiSys.dto.ClientResponseDTO;
 import com.example.JustiSys.model.City;
 import com.example.JustiSys.model.Client;
 import com.example.JustiSys.repository.CityRepository;
 import com.example.JustiSys.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ClientService {
 
@@ -17,12 +22,30 @@ public class ClientService {
         this.cityRepository = cityRepository;
     }
 
-    public Client CreateClient(Client client, Long cityId){
+    public ClientResponseDTO CreateClient(ClientRequestDTO dto) {
 
-        City city = cityRepository.findById(cityId)
-                        .orElseThrow(() -> new RuntimeException("Cidade nao encontrada"));
+        City city = cityService.getCityById(dto.getCityId());
 
+        Client client = new Client();
+        client.setName(dto.getName());
+        client.setEmail(dto.getEmail());
         client.setCity(city);
-        return clientRepository.save(client);
+
+        Client saved = clientRepository.save(client);
+        return new ClientResponseDTO(saved);
+    }
+
+    public List<ClientResponseDTO > getAllClients(){
+        return clientRepository.findAll()
+                .stream()
+                .map(ClientResponseDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public ClientResponseDTO  getClientById(String id){
+        Client client = clientRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente nao encontrado"));
+
+        return new ClientResponseDTO(client);
     }
 }
