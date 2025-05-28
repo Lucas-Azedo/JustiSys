@@ -4,8 +4,9 @@
 
 - [x] Criar pacotes principais: controller, dto, exception, model, repository, service
 - [x] Definir entidades principais: Client, City, Case, Document
-- [ ] Implementar classes DTO para cada entidade
-- [ ] Configurar repositórios com Spring Data JPA
+- [x] Implementar classes DTO para cada entidade
+- [x] Implementar classes DTO totais para todas entidades
+- [x] Configurar repositórios com Spring Data JPA
 - [ ] Criar serviços para lógica de negócios
 - [ ] Implementar controladores REST para cada recurso
 
