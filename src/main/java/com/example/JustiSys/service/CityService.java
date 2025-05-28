@@ -2,11 +2,9 @@ package com.example.JustiSys.service;
 
 import com.example.JustiSys.dto.CityRequestDTO;
 import com.example.JustiSys.dto.CityResponseDTO;
-import com.example.JustiSys.exception.InvalidId;
+import com.example.JustiSys.exception.InvalidCityId;
 import com.example.JustiSys.model.City;
-import com.example.JustiSys.model.Client;
 import com.example.JustiSys.repository.CityRepository;
-import com.example.JustiSys.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,14 +41,14 @@ public class CityService {
 
     public CityResponseDTO getCityById(Long id) {
         City city = cityRepository.findById(id)
-                .orElseThrow(InvalidId::new);
+                .orElseThrow(InvalidCityId::new);
 
         return new CityResponseDTO(city);
     }
 
     public City findCityEntityById(Long id) {
         return cityRepository.findById(id)
-                .orElseThrow(InvalidId::new);
+                .orElseThrow(InvalidCityId::new);
     }
 
     public CityResponseDTO updateCity(Long id, CityRequestDTO dto) {
@@ -64,7 +62,7 @@ public class CityService {
 
     public void deleteCity(Long id) {
         if (!cityRepository.existsById(id)) {
-            throw new InvalidId();
+            throw new InvalidCityId();
         }
         cityRepository.deleteById(id);
     }

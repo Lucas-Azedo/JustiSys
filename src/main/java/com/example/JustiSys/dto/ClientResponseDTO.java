@@ -3,9 +3,11 @@ package com.example.JustiSys.dto;
 import com.example.JustiSys.model.Client;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class ClientResponseDTO {
-    private String id;
+    private UUID id;
     private String name;
     private String email;
     private String cityName;

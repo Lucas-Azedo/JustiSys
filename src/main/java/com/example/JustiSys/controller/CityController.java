@@ -2,10 +2,8 @@ package com.example.JustiSys.controller;
 
 import com.example.JustiSys.dto.CityRequestDTO;
 import com.example.JustiSys.dto.CityResponseDTO;
-import com.example.JustiSys.model.City;
 import com.example.JustiSys.service.CityService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +37,7 @@ public class CityController {
         return ResponseEntity.ok(cityService.getCityById(id));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<CityResponseDTO> update(@PathVariable long id, @RequestBody @Valid CityRequestDTO dto) {
         return ResponseEntity.ok(cityService.updateCity(id, dto));
     }

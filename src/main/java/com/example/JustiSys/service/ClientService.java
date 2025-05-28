@@ -2,29 +2,27 @@ package com.example.JustiSys.service;
 
 import com.example.JustiSys.dto.ClientRequestDTO;
 import com.example.JustiSys.dto.ClientResponseDTO;
-import com.example.JustiSys.exception.InvalidId;
+import com.example.JustiSys.exception.InvalidClientId;
 import com.example.JustiSys.model.City;
 import com.example.JustiSys.model.Client;
-import com.example.JustiSys.repository.CityRepository;
 import com.example.JustiSys.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 public class ClientService {
 
     private final ClientRepository clientRepository;
-    private final CityRepository cityRepository;
     private final CityService cityService;
 
 
     @Autowired
-    public ClientService(ClientRepository clientRepository, CityRepository cityRepository, CityService cityService){
+    public ClientService(ClientRepository clientRepository, CityService cityService){
         this.clientRepository = clientRepository;
-        this.cityRepository = cityRepository;
         this.cityService = cityService;
     }
 
@@ -48,19 +46,19 @@ public class ClientService {
                 .collect(Collectors.toList());
     }
 
-    public ClientResponseDTO getClientById(String id) {
+    public ClientResponseDTO getClientById(UUID id) {
         Client client = clientRepository.findById(id)
-                .orElseThrow(InvalidId::new);
+                .orElseThrow(InvalidClientId::new);
 
         return new ClientResponseDTO(client);
     }
 
-    public Client findClientEntityById(String id) {
+    public Client findClientEntityById(UUID id) {
         return clientRepository.findById(id)
-                .orElseThrow(InvalidId::new);
+                .orElseThrow(InvalidClientId::new);
     }
 
-    public ClientResponseDTO updateClient(String id, ClientRequestDTO dto) {
+    public ClientResponseDTO updateClient(UUID id, ClientRequestDTO dto) {
         Client client = findClientEntityById(id);
 
         City city = cityService.findCityEntityById(dto.getCityId());
@@ -73,9 +71,9 @@ public class ClientService {
         return new ClientResponseDTO(updated);
     }
 
-    public void deleteClient(String id) {
+    public void deleteClient(UUID id) {
         if (!clientRepository.existsById(id)) {
-            throw new InvalidId();
+            throw new InvalidClientId();
         }
         clientRepository.deleteById(id);
     }

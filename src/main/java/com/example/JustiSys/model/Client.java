@@ -11,7 +11,9 @@ import java.util.UUID;
 public class Client {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
     private String name;
     private String email;
     private String phoneNumber;
@@ -24,7 +26,6 @@ public class Client {
     public Client(){}
 
     public Client(String name, String email, String phoneNumber, String address, City city){
-        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;

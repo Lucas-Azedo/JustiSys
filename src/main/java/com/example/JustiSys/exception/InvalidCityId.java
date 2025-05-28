@@ -1,8 +1,8 @@
 package com.example.JustiSys.exception;
 
-public class InvalidId extends RuntimeException {
+public class InvalidCityId extends RuntimeException {
 
-    public InvalidId() {
+    public InvalidCityId() {
         super("Invalid id inserted");
     }
 }

@@ -4,13 +4,13 @@ import com.example.JustiSys.dto.ClientRequestDTO;
 import com.example.JustiSys.dto.ClientResponseDTO;
 import com.example.JustiSys.service.ClientService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/clients")
@@ -34,17 +34,17 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientResponseDTO> getById (@PathVariable String id){
+    public ResponseEntity<ClientResponseDTO> getById (@PathVariable UUID id){
         return ResponseEntity.ok(clientService.getClientById(id));
     }
 
-    @PutMapping
-    public ResponseEntity<ClientResponseDTO> update(@PathVariable String id, @RequestBody @Valid ClientRequestDTO dto){
+    @PutMapping("/{id}")
+    public ResponseEntity<ClientResponseDTO> update(@PathVariable UUID id, @RequestBody @Valid ClientRequestDTO dto){
         return ResponseEntity.ok(clientService.updateClient(id, dto));
     }
 
-    @DeleteMapping("{id")
-    public ResponseEntity<ClientResponseDTO> delete(@PathVariable String id){
+    @DeleteMapping("{id}")
+    public ResponseEntity<ClientResponseDTO> delete(@PathVariable UUID id){
         clientService.deleteClient(id);
         return ResponseEntity.noContent().build();
     }
