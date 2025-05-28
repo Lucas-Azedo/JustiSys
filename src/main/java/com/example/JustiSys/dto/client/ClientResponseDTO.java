@@ -1,12 +1,12 @@
 package com.example.JustiSys.dto.client;
 
 import com.example.JustiSys.model.Client;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import java.util.UUID;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class ClientResponseDTO {
     private UUID id;

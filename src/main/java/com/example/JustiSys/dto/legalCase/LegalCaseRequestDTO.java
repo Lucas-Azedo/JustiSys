@@ -19,7 +19,7 @@ public class LegalCaseRequestDTO {
     private String description;
 
     @NotNull
-    LocalDate openDate;
+    LocalDate createdAt;
 
     @NotNull
     LegalCaseStatus status;

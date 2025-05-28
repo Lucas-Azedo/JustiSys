@@ -58,7 +58,8 @@ public class ClientService {
                 .orElseThrow(InvalidClientId::new);
     }
 
-    public ClientResponseDTO updateClient(UUID id, ClientRequestDTO dto) {
+    //Fix following method by adding a separate DTO for updating because of security
+    /*public ClientResponseDTO updateClient(UUID id, ClientRequestDTO dto) {
         Client client = findClientEntityById(id);
 
         City city = cityService.findCityEntityById(dto.getCityId());
@@ -69,16 +70,10 @@ public class ClientService {
 
         Client updated = clientRepository.save(client);
         return new ClientResponseDTO(updated);
-    }
+    }*/
 
     public void deleteClient(UUID id) {
-        if (!clientRepository.existsById(id)) {
-            throw new InvalidClientId();
-        }
-        clientRepository.deleteById(id);
+        Client client = findClientEntityById(id);
+        clientRepository.delete(client);
     }
-
-
-
-
 }

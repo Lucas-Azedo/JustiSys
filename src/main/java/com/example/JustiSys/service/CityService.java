@@ -4,6 +4,7 @@ import com.example.JustiSys.dto.city.CityRequestDTO;
 import com.example.JustiSys.dto.city.CityResponseDTO;
 import com.example.JustiSys.exception.InvalidCityId;
 import com.example.JustiSys.model.City;
+import com.example.JustiSys.model.Client;
 import com.example.JustiSys.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,6 @@ public class CityService {
         City city = new City();
 
         city.setName(dto.getName());
-
 
         City saved = cityRepository.save(city);
         return new CityResponseDTO(saved);
@@ -51,20 +51,19 @@ public class CityService {
                 .orElseThrow(InvalidCityId::new);
     }
 
-    public CityResponseDTO updateCity(Long id, CityRequestDTO dto) {
+    //Fix following method by adding a separate DTO for updating because of security
+    /*public CityResponseDTO updateCity(Long id, CityRequestDTO dto) {
         City city = findCityEntityById(id);
 
         city.setName(dto.getName());
 
         City updated = cityRepository.save(city);
         return new CityResponseDTO(updated);
-    }
+    }*/
 
     public void deleteCity(Long id) {
-        if (!cityRepository.existsById(id)) {
-            throw new InvalidCityId();
-        }
-        cityRepository.deleteById(id);
+        City city = findCityEntityById(id);
+        cityRepository.delete(city);
     }
 
 

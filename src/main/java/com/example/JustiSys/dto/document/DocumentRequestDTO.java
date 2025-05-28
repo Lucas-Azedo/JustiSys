@@ -1,10 +1,13 @@
 package com.example.JustiSys.dto.document;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 import java.util.UUID;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class DocumentRequestDTO {
 
     @NotBlank
