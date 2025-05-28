@@ -1,7 +1,7 @@
 package com.example.JustiSys.service;
 
-import com.example.JustiSys.dto.CityRequestDTO;
-import com.example.JustiSys.dto.CityResponseDTO;
+import com.example.JustiSys.dto.city.CityRequestDTO;
+import com.example.JustiSys.dto.city.CityResponseDTO;
 import com.example.JustiSys.exception.InvalidCityId;
 import com.example.JustiSys.model.City;
 import com.example.JustiSys.repository.CityRepository;

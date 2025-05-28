@@ -1,12 +1,16 @@
 package com.example.JustiSys.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-import java.util.UUID;
+import java.time.*;
+import java.util.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Data
-@Table(name = "clients")
+@Table(name = "client")
 @Entity
 public class Client {
 
@@ -16,21 +20,18 @@ public class Client {
 
     private String name;
     private String email;
+    private String gender;
+    private String cpfOrCnpj;
+    private LocalDate birthDate;
+
     private String phoneNumber;
     private String address;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "city_id")
     private City city;
-
-    public Client(){}
-
-    public Client(String name, String email, String phoneNumber, String address, City city){
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.city = city;
-    }
 
 }

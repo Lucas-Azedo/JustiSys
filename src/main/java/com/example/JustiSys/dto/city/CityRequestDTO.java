@@ -1,5 +1,6 @@
-package com.example.JustiSys.dto;
+package com.example.JustiSys.dto.city;
 
+import com.example.JustiSys.enums.CityState;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -9,5 +10,8 @@ import lombok.*;
 public class CityRequestDTO {
     @NotBlank
     private String name;
+
+    @NotBlank
+    private CityState state;
 
 }

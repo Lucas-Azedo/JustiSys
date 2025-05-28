@@ -1,10 +1,9 @@
-package com.example.JustiSys.dto;
+package com.example.JustiSys.dto.client;
 
 import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class ClientRequestDTO {
     @NotBlank
@@ -13,6 +12,9 @@ public class ClientRequestDTO {
     @Email
     @NotBlank
     private String email;
+
+    @NotBlank
+    private String cpfOrCnpj;
 
     @NotNull
     private Long cityId;

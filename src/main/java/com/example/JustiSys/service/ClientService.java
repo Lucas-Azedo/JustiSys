@@ -1,7 +1,7 @@
 package com.example.JustiSys.service;
 
-import com.example.JustiSys.dto.ClientRequestDTO;
-import com.example.JustiSys.dto.ClientResponseDTO;
+import com.example.JustiSys.dto.client.ClientRequestDTO;
+import com.example.JustiSys.dto.client.ClientResponseDTO;
 import com.example.JustiSys.exception.InvalidClientId;
 import com.example.JustiSys.model.City;
 import com.example.JustiSys.model.Client;

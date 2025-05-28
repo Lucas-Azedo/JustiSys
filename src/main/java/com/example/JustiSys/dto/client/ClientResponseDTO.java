@@ -1,11 +1,13 @@
-package com.example.JustiSys.dto;
+package com.example.JustiSys.dto.client;
 
 import com.example.JustiSys.model.Client;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
+@AllArgsConstructor
 public class ClientResponseDTO {
     private UUID id;
     private String name;

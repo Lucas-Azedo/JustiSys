@@ -1,7 +1,7 @@
 package com.example.JustiSys.controller;
 
-import com.example.JustiSys.dto.CityRequestDTO;
-import com.example.JustiSys.dto.CityResponseDTO;
+import com.example.JustiSys.dto.city.CityRequestDTO;
+import com.example.JustiSys.dto.city.CityResponseDTO;
 import com.example.JustiSys.service.CityService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

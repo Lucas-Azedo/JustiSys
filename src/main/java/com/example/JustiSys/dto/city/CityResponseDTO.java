@@ -1,4 +1,4 @@
-package com.example.JustiSys.dto;
+package com.example.JustiSys.dto.city;
 
 import com.example.JustiSys.model.City;
 import lombok.Data;
